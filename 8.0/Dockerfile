@@ -59,6 +59,8 @@ RUN { \
 # ensure that /var/run/mysqld (used for socket and lock files) is writable regardless of the UID our mysqld instance ends up having at runtime
 	&& chmod 777 /var/run/mysqld
 
+RUN cp /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
+
 VOLUME /var/lib/mysql
 # Config files
 COPY config/ /etc/mysql/
