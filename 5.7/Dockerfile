@@ -65,6 +65,8 @@ RUN { \
 RUN sed -Ei 's/^(bind-address|log)/#&/' /etc/mysql/mysql.conf.d/mysqld.cnf \
 	&& echo '[mysqld]\nskip-host-cache\nskip-name-resolve' > /etc/mysql/conf.d/docker.cnf
 
+RUN cp /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
+
 VOLUME /var/lib/mysql
 
 COPY docker-entrypoint.sh /usr/local/bin/
